@@ -1,0 +1,75 @@
+<section class="section-b-space">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+
+                <category></category>
+
+                <customer-sidebar></customer-sidebar>
+
+            </div>
+            <div class="col-md-9">
+                <div class="dashboard-right">
+                    <div class="dashboard">
+                        <div class="page-title">
+                            <h2>Invoice # {{ order.orderNo }}</h2>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <a href="/"><img ng-src="assets/frontend/images/logo/logo.png" alt="" style="max-width: 250px"></a>
+                                    <p class="mb-0">314, Sher-E-Bangla Road, Solaiman Nagor 2nd lane, Sonadanga, Khulna, Bangladesh.</p>
+                                    <p class="mb-5">Mobile : +8801872-500515</p>
+                                </div>
+                                <div class="col-md-6 text-right">
+                                    <h4 class="mt-5">{{ order.customerName }}</h4>
+                                    <p class="mb-0">{{ order.addressInfo }}</p>
+                                    <p class="mb-5">Mobile : {{ order.customerMobile }}</p>
+                                </div>
+                            </div>
+
+                            <table class="table table-hover table-striped table-sm">
+                                <thead>
+                                <tr>
+                                    <th class="text-center">#</th>
+                                    <th class="text-center" colspan="2">Product</th>
+                                    <th class="text-center">Quantity</th>
+                                    <th class="text-center">Unit Price</th>
+                                    <th class="text-center">Total</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="product in order.orderDetailsList">
+                                    <td class="text-center">{{ $index + 1 }}</td>
+                                    <td class="text-center">
+                                        <img ng-src="{{ product.virtualPath }}" class="img-fluid" alt="" style="max-width: 80px">
+                                    </td>
+                                    <td>{{ product.titleAttribute }}</td>
+                                    <td class="text-center">{{ product.totalCount | number : 2 }}</td>
+                                    <td class="text-center">{{ product.mrp | currency : 'BDT ' : 2 }}</td>
+                                    <td class="text-center">{{ (product.mrp * product.totalCount) | currency : 'BDT ' : 2 }}</td>
+                                </tr>
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <th class="text-right" colspan="5">Total</th>
+                                    <th class="text-center">{{ order.totalAmount | currency : 'BDT ' : 2 }}</th>
+                                </tr>
+                                <tr>
+                                    <th class="text-right" colspan="5">Shipping Charge</th>
+                                    <th class="text-center">{{ order.serviceCharges | currency : 'BDT ' : 2 }}</th>
+                                </tr>
+                                <tr>
+                                    <th class="text-right" colspan="5">Sub Total</th>
+                                    <th class="text-center">{{ order.totalAmount | currency : 'BDT ' : 2 }}</th>
+                                </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

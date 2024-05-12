@@ -1,0 +1,43 @@
+<section class="section-b-space">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+
+                <category></category>
+
+                <customer-sidebar></customer-sidebar>
+
+            </div>
+            <div class="col-md-9">
+                <div class="dashboard-right">
+                    <div class="dashboard">
+                        <div class="page-title">
+                            <h2>Order Details</h2>
+
+                            <table class="table table-hover table-striped table-sm">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">#</th>
+                                        <th class="text-center">Date</th>
+                                        <th class="text-center">Order No</th>
+                                        <th class="text-center">Total Amount</th>
+                                        <th class="text-center">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="order in orders">
+                                        <td class="text-center">{{ $index + 1 }}</td>
+                                        <td class="text-center"><a href="#/customer/invoice/{{ order.id }}">{{ order.orderPlacedOn }}</a></td>
+                                        <td class="text-center"><a href="#/customer/invoice/{{ order.id }}">{{ order.orderNo }}</a></td>
+                                        <td class="text-center"><a href="#/customer/invoice/{{ order.id }}">{{ order.totalAmount | currency : 'BDT ' : 2  }}</a></td>
+                                        <td class="text-center"><a href="#/customer/invoice/{{ order.id }}">{{ order.orderStatus }}</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </section>

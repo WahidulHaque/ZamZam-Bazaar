@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\assets",
+    "\\assets\\frontend",
+    "\\assets\\frontend\\css",
+    "\\src",
+    "\\src\\components",
+    "\\src\\components\\ecomHeader",
+    "\\src\\customer",
+    "\\src\\customer\\orders",
+    "\\src\\home"
+  ],
+  "SelectedNode": "\\src\\customer\\orders\\order.js",
+  "PreviewInSolutionExplorer": false
+}

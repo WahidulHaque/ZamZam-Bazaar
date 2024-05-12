@@ -1,0 +1,22 @@
+<div class="product-box product-select-box">
+    <div class="img-block">
+        <a href="#">
+            <img ng-src="{{ $ctrl.product.virtualPath }}" class=" img-fluid bg-img" alt="">
+        </a>
+    </div>
+    <div class="product-info">
+        <a href="#">
+            <h6>{{ $ctrl.product.titleAttribute }}</h6>
+        </a>
+        <h5>{{ $ctrl.product.mrp | currency : 'BDT ' : 2 }}</h5>
+    </div>
+    <div class="qty-add-box">
+        <div class="qty-box">
+            <label>Qty:</label>
+            <div class="input-group">
+                <input type="number" name="quantity" class="form-control input-number" ng-model="quantity">
+            </div>
+            <button title="buy now" ng-click="addToCart()">Add <i class="ti-shopping-cart"></i></button>
+        </div>
+    </div>
+</div>

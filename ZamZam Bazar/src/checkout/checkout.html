@@ -1,0 +1,103 @@
+<section class="section-b-space">
+    <div class="container">
+        <div class="checkout-page">
+            <div class="checkout-form">
+
+                <div class="row">
+                    <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
+
+                        <category></category>
+
+                    </div>
+                    <div class="col-md-9 col-lg-9 col-sm-12 col-xs-12">
+
+                        <form class="theme-form" name="checkoutFrom" novalidate>
+                            <div class="d-flex mb-2">
+                                <a href="#" tabindex="0"> <i class="fa fa-home mr-1"></i> </a>
+                                <a class="font-weight-bold" href="#" tabindex="0">Home</a> / Checkout
+                            </div>
+                            <div class="top-banner-wrapper pb-3">
+                                <a href="#">
+                                    <img ng-src="assets/frontend/images/about/about-us.jpg" class="img-fluid"alt="">
+                                </a>
+                            </div>
+                            <div class="col-md-5 col-sm-12 col-xs-12 float-left">
+                                <div class="checkout-title">
+                                    <h3>Shipping Details</h3>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-md-12 col-sm-6 col-xs-12">
+                                        <div class="field-label">Name</div>
+                                        <input type="text" name="customerName" id="customerName" ng-model="formData.customerName"  placeholder="Please enter your name" required>
+
+                                        <div class="text-danger" ng-show="checkoutFrom.$submitted || checkoutFrom.customerName.$touched">
+                                            <span ng-show="checkoutFrom.customerName.$error.required">Please enter your name.</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-12 col-sm-6 col-xs-12">
+                                        <div class="field-label">Mobile No</div>
+                                        <input type="text" name="customerMobile" ng-model="formData.customerMobile"  placeholder="Please enter your mobile no">
+
+                                        <div class="text-danger" ng-show="checkoutFrom.$submitted || checkoutFrom.customerMobile.$touched">
+                                            <span ng-show="checkoutFrom.customerMobile.$error.required">Please enter your mobile no.</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                        <div class="field-label">Address</div>
+                                        <textarea name="addressInfo" ng-model="formData.addressInfo"  placeholder="Please enter your address" required></textarea>
+
+                                        <div class="text-danger" ng-show="checkoutFrom.$submitted || checkoutFrom.addressInfo.$touched">
+                                            <span ng-show="checkoutFrom.addressInfo.$error.required">Please enter your address.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-7 col-sm-12 col-xs-12 float-right">
+                                <div class="checkout-details">
+                                    <div class="order-box">
+                                        <div class="title-box">
+                                            <div>Product <span>Total</span></div>
+                                        </div>
+                                        <ul class="qty">
+                                            <li  ng-repeat="product in $root.CART_PRODUCTS">{{ product.titleAttribute }} × {{ product.quantity }} <span> {{ product.minSalePrice * product.quantity | currency : 'BDT ' : 2 }}</span></li>
+                                        </ul>
+                                        <ul class="sub-total">
+                                            <li>Subtotal <span class="count">{{ $root.PRODUCT_TOTAL | currency : 'BDT ' : 2  }}</span></li>
+                                        </ul>
+                                        <ul class="total">
+                                            <li>Total <span class="count">{{ $root.PRODUCT_TOTAL | currency : 'BDT ' : 2  }}</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="payment-box">
+                                        <div class="upper-box">
+                                            <div class="payment-options">
+                                                <ul>
+                                                    <li>
+                                                        <div class="radio-option">
+                                                            <input type="radio" name="paymentMethod" id="payment-1" checked="checked">
+                                                            <label for="payment-1">Check Payments<span class="small-text">Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</span></label>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="radio-option">
+                                                            <input type="radio" name="paymentMethod" id="payment-2">
+                                                            <label for="payment-2">Cash On Delivery<span class="small-text">Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</span></label>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="text-right">
+                                            <button class="btn-solid btn" ng-click="placeOrder()">Place Order</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
